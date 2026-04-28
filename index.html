@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Trimlaine — The AI audit built around your Return on Investment</title>
 <meta name="description" content="Trimlaine is an AI advisory for small and mid-sized businesses. We audit your operations, identify the right AI tools, and model the return — before you spend a cent." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -410,6 +411,47 @@
     .process__step { min-height: auto; }
   }
 
+  /* PRE-CALL CTA BAR */
+  .process__cta-bar {
+    display: flex; align-items: center; justify-content: center; gap: 18px;
+    padding: 26px 36px;
+    margin: 8px 0 36px;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--purple) 50%, var(--blue) 100%);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    box-shadow: 8px 8px 0 var(--ink);
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-weight: 500;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    text-align: center;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .process__cta-bar:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 12px 12px 0 var(--ink);
+  }
+  .process__cta-bar svg { transition: transform .3s var(--ease); flex-shrink: 0; }
+  .process__cta-bar:hover svg { transform: translateX(6px); }
+  .process__cta-bar .cta-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    background: rgba(0,0,0,.28);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  @media (max-width: 700px) {
+    .process__cta-bar { flex-direction: column; gap: 12px; padding: 22px 24px; }
+  }
+
   /* AUDIT */
   .audit-section {
     background: var(--purple-darker);
@@ -567,6 +609,38 @@
   .pricing__inc li:nth-child(6n+5) .check { background: var(--purple); }
   .pricing__inc li:nth-child(6n+6) .check { background: var(--blue); }
 
+  /* PRICING ADD-ON BOX */
+  .pricing__addon {
+    border: 2px dashed rgba(255,255,255,.22);
+    background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+    padding: 32px 40px;
+    border-radius: 12px;
+    margin-top: 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+  }
+  .pricing__addon::before {
+    content: "";
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--purple-bright), var(--orange-bright));
+    opacity: .6;
+  }
+  .pricing__addon-label {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--purple-bright); font-weight: 600; margin-bottom: 14px; display: block;
+  }
+  .pricing__addon-text {
+    font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); letter-spacing: -0.02em; font-weight: 500;
+    color: var(--paper); line-height: 1.25;
+  }
+  .pricing__addon-text em {
+    font-family: var(--font-italic); font-style: italic; font-weight: 400;
+    color: var(--orange-bright);
+    -webkit-text-fill-color: var(--orange-bright);
+  }
+
   /* ABOUT */
   .about {
     background:
@@ -667,6 +741,32 @@
 
   @media (max-width: 800px) { .contact__cards { grid-template-columns: 1fr; } }
 
+  /* CONTACT CTA BUTTON */
+  .contact__cta {
+    display: inline-flex; align-items: center; gap: 14px;
+    padding: 22px 36px;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--purple-bright) 55%, var(--blue-bright) 100%);
+    color: var(--paper);
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: clamp(17px, 1.8vw, 22px);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    box-shadow: 0 10px 30px rgba(255,107,53,.28);
+    text-decoration: none;
+  }
+  .contact__cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(255,107,53,.42);
+  }
+  .contact__cta svg { transition: transform .25s var(--ease); flex-shrink: 0; }
+  .contact__cta:hover svg { transform: translateX(5px); }
+  @media (max-width: 600px) {
+    .contact__cta { padding: 18px 24px; width: 100%; justify-content: center; text-align: center; }
+  }
+
   /* FOOTER */
   footer {
     background: var(--ink);
@@ -757,6 +857,12 @@
             <p class="lede">Every engagement follows the same disciplined method — because guesswork is what we're hired to remove.</p>
           </div>
 
+          <a href="https://tally.so/r/gDQV0P" target="_blank" rel="noopener noreferrer" class="process__cta-bar fade-up">
+            <span class="cta-eyebrow">Start here</span>
+            <span>Pre-Call Questionnaire</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+
           <div class="process__flow">
 
             <div class="process__step fade-up">
@@ -832,7 +938,7 @@
           </div>
 
           <div class="industries__grid">
-            <div class="industry fade-up"><span class="industry__num">01</span><h4>HVAC &amp; Home Services</h4></div>
+            <div class="industry fade-up"><span class="industry__num">01</span><h4>HVAC, Electricians, Plumbers &amp; Home Services</h4></div>
             <div class="industry fade-up"><span class="industry__num">02</span><h4>Restaurants &amp; Hospitality</h4></div>
             <div class="industry fade-up"><span class="industry__num">03</span><h4>Real Estate</h4></div>
             <div class="industry fade-up"><span class="industry__num">04</span><h4>Legal &amp; Law Firms</h4></div>
@@ -854,7 +960,7 @@
         <div class="container pricing__inner fade-up">
           <span class="eyebrow" style="color: var(--orange-bright);">Investment</span>
           <h2 style="margin-top: 24px;">One package. <em>One price.</em> Zero guesswork.</h2>
-          <p class="lede">No tiers, no upsells, no "strategic retainer" bait-and-switch. A single comprehensive audit, delivered in two weeks or less.</p>
+          <p class="lede">A single comprehensive audit, delivered in two weeks or less.</p>
 
           <div class="pricing__card">
             <div class="pricing__row">
@@ -869,9 +975,14 @@
               <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="m5 12 5 5L20 7"/></svg></span> Full research across applicable AI tools</li>
               <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="m5 12 5 5L20 7"/></svg></span> ROI modeling — hours, revenue, costs</li>
               <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="m5 12 5 5L20 7"/></svg></span> Presentation-grade AI Opportunity Report</li>
-              <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="m5 12 5 5L20 7"/></svg></span> 90-day implementation roadmap</li>
+              <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="m5 12 5 5L20 7"/></svg></span> Implementation roadmap</li>
               <li><span class="check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="m5 12 5 5L20 7"/></svg></span> Delivered in 7–14 business days</li>
             </ul>
+          </div>
+
+          <div class="pricing__addon">
+            <span class="pricing__addon-label">Add-on</span>
+            <div class="pricing__addon-text">AI customization options available <em>(Sold Separately)</em></div>
           </div>
         </div>
       </div>
@@ -899,7 +1010,10 @@
         <div class="container contact__inner fade-up">
           <span class="eyebrow" style="color: var(--orange-bright);">Get in touch</span>
           <h2>Tell us about your <em>business.</em></h2>
-          <p class="lede">Reach out by email or phone. We respond within one business day.</p>
+          <a href="https://tally.so/r/gDQV0P" target="_blank" rel="noopener noreferrer" class="contact__cta">
+            <span>Take the Pre-Call Questionnaire And Get Started!</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
 
           <div class="contact__cards">
             <a href="mailto:trimlaine@outlook.com" class="contact__card">
